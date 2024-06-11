@@ -1,3 +1,6 @@
+import time
+
+
 # Definição da Lista Encadeada
 class Node:
     def __init__(self, data):
@@ -136,12 +139,15 @@ def main():
             linked_list.insert(name)
             bst.insert(name)
             print(f"Contato {name} adicionado.")
+            time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '2':
             name = input("Digite o nome do contato para remover: ")
             linked_list.delete(name)
             bst.delete(name)
             print(f"Contato {name} removido.")
+            
+            time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '3':
             name = input("Digite o nome do contato para buscar: ")
@@ -151,13 +157,16 @@ def main():
                 print(f"Contato {name} encontrado.")
             else:
                 print(f"Contato {name} não encontrado.")
+                time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '4':
             print("Contatos na Lista Encadeada:")
             linked_list.display()
+            time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '5':
             print("Saindo...")
+            time.sleep(1) #Pausa de 1 segundo antes de sair
             break
 
         else:
