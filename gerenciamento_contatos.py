@@ -160,9 +160,13 @@ def main():
                 time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '4':
-            print("Contatos na Lista Encadeada:")
-            linked_list.display()
-            time.sleep(1) #Pausa de 1 segundo antes de sair
+            contatos = linked_list.display()
+            if contatos:
+                print("Contatos na Lista Encadeada:")
+                print(contatos)
+            else:
+                print("Não existe nenhum contato cadastrado no momento.")
+                time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '5':
             print("Saindo...")
