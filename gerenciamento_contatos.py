@@ -135,11 +135,16 @@ def main():
         choice = input("Escolha uma opção: ")
 
         if choice == '1':
-            name = input("Digite o nome do contato: ")
-            linked_list.insert(name)
-            bst.insert(name)
-            print(f"Contato {name} adicionado.")
-            time.sleep(1) #Pausa de 1 segundo antes de sair
+            while True:
+                name = input("Digite o nome do contato: ")
+                linked_list.insert(name)
+                bst.insert(name)
+                print(f"Contato {name} adicionado.")
+                another = input("Gostaria de adicionar mais algum contato? (s/n): ")
+                if another.lower() != 's':
+                    time.sleep(1) #Pausa de 1 segundo antes de sair
+                    break
+                
 
         elif choice == '2':
             name = input("Digite o nome do contato para remover: ")
