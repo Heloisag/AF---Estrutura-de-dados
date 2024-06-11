@@ -115,3 +115,53 @@ class BinarySearchTree:
             current = current.left
         return current
     
+
+# Interface de Usuário
+def main():
+    linked_list = LinkedList()
+    bst = BinarySearchTree()
+
+    while True:
+        print("\nMenu:")
+        print("1. Adicionar Contato")
+        print("2. Remover Contato")
+        print("3. Buscar Contato")
+        print("4. Mostrar Todos os Contatos")
+        print("5. Sair")
+
+        choice = input("Escolha uma opção: ")
+
+        if choice == '1':
+            name = input("Digite o nome do contato: ")
+            linked_list.insert(name)
+            bst.insert(name)
+            print(f"Contato {name} adicionado.")
+
+        elif choice == '2':
+            name = input("Digite o nome do contato para remover: ")
+            linked_list.delete(name)
+            bst.delete(name)
+            print(f"Contato {name} removido.")
+
+        elif choice == '3':
+            name = input("Digite o nome do contato para buscar: ")
+            found_in_list = linked_list.search(name)
+            found_in_bst = bst.search(name) is not None
+            if found_in_list and found_in_bst:
+                print(f"Contato {name} encontrado.")
+            else:
+                print(f"Contato {name} não encontrado.")
+
+        elif choice == '4':
+            print("Contatos na Lista Encadeada:")
+            linked_list.display()
+
+        elif choice == '5':
+            print("Saindo...")
+            break
+
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()    
