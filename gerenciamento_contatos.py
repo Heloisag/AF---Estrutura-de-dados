@@ -146,11 +146,18 @@ def main():
                     linked_list.insert(name)
                     bst.insert(name)
                     print(f"Contato {name} adicionado.")
-                another = input("Gostaria de adicionar mais algum contato? (s/n): ").lower()
+                
+                while True:
+                    another = input("Gostaria de adicionar mais algum contato? (s/n): ").lower()
+                    if another == 'n':
+                        break
+                    elif another == 's':
+                        break
+                    else:
+                        print("Valor incorreto, por favor escolha novamente:")
+
                 if another == 'n':
                     break
-                elif another != 's':
-                    print("Valor incorreto, por favor escolha novamente:")
                 
         elif choice == '2':
             name = input("Digite o nome do contato para remover: ")
