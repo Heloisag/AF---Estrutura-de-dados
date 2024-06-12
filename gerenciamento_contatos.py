@@ -61,80 +61,17 @@ class LinkedList:
             current = current.next
         return elems
 
-# Definição da Árvore Binária de Busca
-class TreeNode:
-    def __init__(self, key):
-        self.left = None
-        self.right = None
-        self.val = key
-
-class BinarySearchTree:
-    def __init__(self):
-        self.root = None
-
-    def insert(self, key):
-        if self.root is None:
-            self.root = TreeNode(key)
-        else:
-            self._insert(self.root, key)
-
-    def _insert(self, root, key):
-        if root is None:
-            return TreeNode(key)
-        if key < root.val:
-            root.left = self._insert(root.left, key)
-        else:
-            root.right = self._insert(root.right, key)
-        return root
-
-    def search(self, key):
-        return self._search(self.root, key)
-
-    def _search(self, root, key):
-        if root is None or root.val == key:
-            return root
-        if key < root.val:
-            return self._search(root.left, key)
-        return self._search(root.right, key)
-
-    def delete(self, key):
-        self.root = self._delete(self.root, key)
-
-    def _delete(self, root, key):
-        if root is None:
-            return root
-        if key < root.val:
-            root.left = self._delete(root.left, key)
-        elif key > root.val:
-            root.right = self._delete(root.right, key)
-        else:
-            if root.left is None:
-                return root.right
-            elif root.right is None:
-                return root.left
-            temp = self._minValueNode(root.right)
-            root.val = temp.val
-            root.right = self._delete(root.right, temp.val)
-        return root
-
-    def _minValueNode(self, node):
-        current = node
-        while current.left is not None:
-            current = current.left
-        return current
-
 # Interface de Usuário
 def main():
     linked_list = LinkedList()
-    bst = BinarySearchTree()
 
     while True:
-        print("\nMenu:")
+        print("\n------------------------- \nMenu:")
         print("1. Adicionar Contato")
         print("2. Remover Contato")
         print("3. Buscar Contato")
         print("4. Mostrar Todos os Contatos")
-        print("5. Sair")
+        print("5. Sair\n")
 
         choice = input("Escolha uma opção: ")
 
@@ -145,7 +82,6 @@ def main():
                     print(f"Contato {name} já existe. Não é possível adicionar duplicado.")
                 else:
                     linked_list.insert(name)
-                    bst.insert(name)
                     print(f"Contato {name} adicionado.")
                 
                 while True:
@@ -174,7 +110,6 @@ def main():
                     if 0 <= contact_idx < len(similar_contacts):
                         contact_to_remove = similar_contacts[contact_idx]
                         linked_list.delete(contact_to_remove)
-                        bst.delete(contact_to_remove)
                         print(f"Contato {contact_to_remove} removido.")
                     else:
                         print("Número inválido.")
@@ -185,23 +120,28 @@ def main():
             name = input("Digite o nome do contato para buscar: ")
             similar_contacts = linked_list.find_similar(name)
             if similar_contacts:
-                print("Contatos encontrados parecidos com {name}:")
+                print("Contatos encontrados:")
                 for idx, contact in enumerate(similar_contacts, start=1):
                     print(f"{idx}. {contact}")
+                    time.sleep(0.75)  # Pausa de 0.75 segundos antes de sair
             else:
                 print(f"Contato {name} não encontrado.")
+                time.sleep(0.75)  # Pausa de 0.75 segundos antes de sair
 
         elif choice == '4':
             contatos = linked_list.display()
             if contatos:
                 print("Contatos na Lista Encadeada:")
-                print(contatos)
+                for idx, contact in enumerate(contatos, start=1):
+                    print(f"{idx}. {contact}")
+                    time.sleep(0.75)  # Pausa de 0.75 segundos antes de sair
             else:
                 print("Não existe nenhum contato cadastrado no momento.")
+                time.sleep(0.75)  # Pausa de 0.75 segundos antes de sair
 
         elif choice == '5':
             print("Saindo...")
-            time.sleep(3)  # Pausa de 3 segundos antes de sair
+            time.sleep(1)  # Pausa de 1 segundos antes de sair
             break
 
         else:
