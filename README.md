@@ -33,7 +33,7 @@ Essa combinação permite armazenar e manipular os contatos na árvore, além de
    - [Opção 5: Sair](#opção-5-sair)
 7. [Considerações Finais](#considerações-finais)
 
-### Rodando o Projeto
+## Rodando o Projeto
 
 1. **Instalação do Python:**
    - Certifique-se de ter o Python instalado em seu sistema. Você pode baixá-lo e instalá-lo a partir do [site oficial do Python](https://www.python.org/).
@@ -67,7 +67,7 @@ Essa combinação permite armazenar e manipular os contatos na árvore, além de
 Com essas etapas, você poderá rodar e interagir com o projeto DynamicDataManager em seu ambiente local. Certifique-se de seguir as instruções cuidadosamente para uma experiência sem problemas.
 
 
-### SOBRE O PROGRAMA
+## SOBRE O PROGRAMA
 
 ### Estrutura da Árvore Binária de Busca (BST)
 
