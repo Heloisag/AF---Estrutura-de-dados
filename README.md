@@ -3,6 +3,34 @@
 Para o projeto final, desenvolvemos uma árvore binária de busca (BST) que interage com uma lista duplamente encadeada como estrutura de dados auxiliar. 
 Essa combinação permite armazenar e manipular os contatos na árvore, além de listar contatos similares utilizando a lista duplamente encadeada.
 
+## Sumário
+
+1. [DynamicDataManager - python project](#dynamicdatamanager---python-project)
+2. [Estrutura da Árvore Binária de Busca (BST)](#estrutura-da-árvore-binária-de-busca-bst)
+   - [TreeNode](#treenode)
+   - [BinarySearchTree](#binarysearchtree)
+3. [Métodos da BST](#métodos)
+   - [Insert](#insert)
+   - [Delete](#delete)
+   - [Search](#search)
+   - [Find_similar](#find_similar)
+   - [Display](#display)
+4. [Estrutura da Lista Duplamente Encadeada](#estrutura-da-lista-duplamente-encadeada)
+   - [DoublyLinkedListNode](#doublylinkedlistnode)
+   - [DoublyLinkedList](#doublylinkedlist)
+5. [Métodos da Lista Duplamente Encadeada](#métodos-1)
+   - [Insert](#insert-1)
+   - [Display](#display-1)
+6. [Interface de Usuário](#interface-de-usuário)
+   - [Inicialização da Árvore Binária de Busca (BST)](#inicialização-da-árvore-binária-de-busca-bst)
+   - [Loop Principal](#loop-principal)
+   - [Menu de Opções](#menu-de-opções)
+   - [Opção 1: Adicionar Contato](#opção-1-adicionar-contato)
+   - [Opção 2: Remover Contato](#opção-2-remover-contato)
+   - [Opção 3: Buscar Contato](#opção-3-buscar-contato)
+   - [Opção 4: Mostrar Todos os Contatos](#opção-4-mostrar-todos-os-contatos)
+   - [Opção 5: Sair](#opção-5-sair)
+7. [Considerações Finais](#considerações-finais)
 
 ### Estrutura da Árvore Binária de Busca (BST)
 
