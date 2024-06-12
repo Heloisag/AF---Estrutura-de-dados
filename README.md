@@ -1,4 +1,4 @@
-##### DynamicDataManager - python project
+## DynamicDataManager - python project
 
 Para o projeto final, desenvolvemos uma árvore binária de busca (BST) que interage com uma lista duplamente encadeada como estrutura de dados auxiliar. 
 Essa combinação permite armazenar e manipular os contatos na árvore, além de listar contatos similares utilizando a lista duplamente encadeada.
