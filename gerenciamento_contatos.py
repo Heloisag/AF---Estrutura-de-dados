@@ -1,6 +1,5 @@
 import time
 
-
 # Definição da Lista Encadeada
 class Node:
     def __init__(self, data):
@@ -18,34 +17,40 @@ class LinkedList:
 
     def delete(self, key):
         temp = self.head
-
-        if temp is not None:
-            if temp.data == key:
-                self.head = temp.next
-                temp = None
-                return
+        prev = None
 
         while temp is not None:
             if temp.data == key:
-                break
+                if prev is None:
+                    self.head = temp.next
+                else:
+                    prev.next = temp.next
+                return temp.data
             prev = temp
             temp = temp.next
 
-        if temp == None:
-            return
-
-        prev.next = temp.next
-        temp = None
+        return None
 
     def search(self, key):
         current = self.head
 
-        while current != None:
+        while current is not None:
             if current.data == key:
                 return True
             current = current.next
 
         return False
+
+    def find_similar(self, key):
+        current = self.head
+        similar = []
+
+        while current is not None:
+            if key in current.data:
+                similar.append(current.data)
+            current = current.next
+
+        return similar
 
     def display(self):
         elems = []
@@ -53,10 +58,9 @@ class LinkedList:
         while current:
             elems.append(current.data)
             current = current.next
-        print(elems)
+        return elems
 
-
-    # Definição da Árvore Binária de Busca
+# Definição da Árvore Binária de Busca
 class TreeNode:
     def __init__(self, key):
         self.left = None
@@ -117,7 +121,6 @@ class BinarySearchTree:
         while current.left is not None:
             current = current.left
         return current
-    
 
 # Interface de Usuário
 def main():
@@ -137,23 +140,39 @@ def main():
         if choice == '1':
             while True:
                 name = input("Digite o nome do contato: ")
-                linked_list.insert(name)
-                bst.insert(name)
-                print(f"Contato {name} adicionado.")
-                another = input("Gostaria de adicionar mais algum contato? (s/n): ")
-                if another.lower() != 's':
-                    time.sleep(1) #Pausa de 1 segundo antes de sair
+                if linked_list.search(name):
+                    print(f"Contato {name} já existe. Não é possível adicionar duplicado.")
+                else:
+                    linked_list.insert(name)
+                    bst.insert(name)
+                    print(f"Contato {name} adicionado.")
+                another = input("Gostaria de adicionar mais algum contato? (s/n): ").lower()
+                if another == 'n':
                     break
+                elif another != 's':
+                    print("Valor incorreto, por favor escolha novamente:")
                 
-
         elif choice == '2':
             name = input("Digite o nome do contato para remover: ")
-            linked_list.delete(name)
-            bst.delete(name)
-            print(f"Contato {name} removido.")
-            
-            time.sleep(1) #Pausa de 1 segundo antes de sair
-
+            similar_contacts = linked_list.find_similar(name)
+            if not similar_contacts:
+                print(f"Contato {name} não encontrado.")
+            else:
+                print("Contatos encontrados:")
+                for idx, contact in enumerate(similar_contacts, start=1):
+                    print(f"{idx}. {contact}")
+                try:
+                    contact_idx = int(input("Digite o número do contato que deseja remover: ")) - 1
+                    if 0 <= contact_idx < len(similar_contacts):
+                        contact_to_remove = similar_contacts[contact_idx]
+                        linked_list.delete(contact_to_remove)
+                        bst.delete(contact_to_remove)
+                        print(f"Contato {contact_to_remove} removido.")
+                    else:
+                        print("Número inválido.")
+                except ValueError:
+                    print("Entrada inválida.")
+        
         elif choice == '3':
             name = input("Digite o nome do contato para buscar: ")
             found_in_list = linked_list.search(name)
@@ -162,7 +181,6 @@ def main():
                 print(f"Contato {name} encontrado.")
             else:
                 print(f"Contato {name} não encontrado.")
-                time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '4':
             contatos = linked_list.display()
@@ -171,15 +189,14 @@ def main():
                 print(contatos)
             else:
                 print("Não existe nenhum contato cadastrado no momento.")
-                time.sleep(1) #Pausa de 1 segundo antes de sair
 
         elif choice == '5':
             print("Saindo...")
-            time.sleep(1) #Pausa de 1 segundo antes de sair
+            time.sleep(3)  # Pausa de 3 segundos antes de sair
             break
 
         else:
             print("Opção inválida. Tente novamente.")
 
 if __name__ == "__main__":
-    main()    
+    main()
