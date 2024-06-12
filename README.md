@@ -1,6 +1,8 @@
+##### DynamicDataManager - python project
 
 Para o projeto final, desenvolvemos uma árvore binária de busca (BST) que interage com uma lista duplamente encadeada como estrutura de dados auxiliar. 
 Essa combinação permite armazenar e manipular os contatos na árvore, além de listar contatos similares utilizando a lista duplamente encadeada.
+
 
 ### Estrutura da Árvore Binária de Busca (BST)
 
@@ -19,6 +21,7 @@ class TreeNode:
 - **left:** Referência ao filho esquerdo do nó.
 - **right:** Referência ao filho direito do nó.
 
+
 #### BinarySearchTree:
 Esta classe representa a árvore binária de busca e contém métodos para inserir, deletar, buscar e exibir elementos na árvore.
 
@@ -29,6 +32,7 @@ class BinarySearchTree:
 ```
 
 - **root:** O nó raiz da árvore. Inicialmente, é None (árvore vazia).
+
 
 ### Métodos
 
@@ -60,6 +64,7 @@ def _insert(self, data, node):
 ```
 
 Este método recursivo insere o novo nó no lugar apropriado, comparando o dado a ser inserido com o dado do nó atual e movendo-se para a esquerda ou para a direita conforme necessário.
+
 
 ##### delete:
 Remove um dado da árvore.
@@ -102,6 +107,7 @@ def _get_min(self, node):
 
 Este método encontra o nó com o menor valor na subárvore dada.
 
+
 ##### search:
 Busca um dado na árvore.
 
@@ -120,6 +126,7 @@ def _search(self, data, node):
         return self._search(data, node.left)
     return self._search(data, node.right)
 ```
+
 
 ##### find_similar:
 Encontra nós que contêm uma substring específica e armazena esses resultados em uma lista duplamente encadeada.
@@ -142,6 +149,7 @@ def _find_similar(self, key, node, result):
         self._find_similar(key, node.right, result)
 ```
 
+
 ##### display:
 Retorna uma lista com os dados em ordem crescente (in-order traversal).
 
@@ -162,7 +170,9 @@ def _inorder_traversal(self, node, elems):
         self._inorder_traversal(node.right, elems)
 ```
 
+
 ### Estrutura da Lista Duplamente Encadeada
+
 
 #### DoublyLinkedListNode:
 Esta classe representa um nó na lista duplamente encadeada.
@@ -179,6 +189,7 @@ class DoublyLinkedListNode:
 - **prev:** Referência ao nó anterior.
 - **next:** Referência ao próximo nó.
 
+
 #### DoublyLinkedList:
 Esta classe representa a lista duplamente encadeada e contém métodos para inserir e exibir elementos.
 
@@ -191,6 +202,7 @@ class DoublyLinkedList:
 
 - **head:** O primeiro nó da lista.
 - **tail:** O último nó da lista.
+
 
 ### Metodos
 
@@ -209,6 +221,7 @@ def insert(self, data):
         self.tail = new_node
 ```
 Se a lista estiver vazia, o novo nó se torna a cabeça e a cauda. Caso contrário, ele é adicionado ao final da lista.
+
 
 ##### display:
 Retorna uma lista com os dados armazenados na lista duplamente encadeada.
@@ -245,6 +258,7 @@ def main():
         choice = input("Escolha uma opção: ")
 ```
 
+
 ### Inicialização da Árvore Binária de Busca (BST):
 
 Uma instância de BinarySearchTree é criada para armazenar os contatos. Esta árvore será responsável por gerenciar a estrutura e as operações dos contatos.
@@ -259,6 +273,7 @@ A cada iteração do loop, um menu é exibido na tela para que o usuário escolh
 3. Buscar Contato: Permite ao usuário buscar contatos na árvore.
 4. Mostrar Todos os Contatos: Exibe todos os contatos atualmente armazenados na árvore.
 5. Sair: Encerra o programa e sai do loop.
+
 
 ### Opção 1: Adicionar Contato
 
@@ -293,6 +308,7 @@ if choice == '1':
             break
 ```
 
+
 ### Opção 2: Remover Contato
 
 ```python
@@ -324,6 +340,7 @@ elif choice == '2':
   - O usuário pode escolher um contato para remover digitando o número correspondente.
   - O programa usa `delete` da BST para remover o contato escolhido.
 
+
 ### Opção 3: Buscar Contato
 
 ```python
@@ -346,6 +363,7 @@ elif choice == '3':
   - Se contatos são encontrados, eles são exibidos na tela.
   - O programa faz uma pausa de 0.75 segundos entre cada contato encontrado antes de sair.
 
+
 ### Opção 4: Mostrar Todos os Contatos
 
 ```python
@@ -366,6 +384,7 @@ elif choice == '4':
   - Se não houver contatos, uma mensagem informando que nenhum contato está cadastrado é exibida.
   - O programa faz uma pausa de 0.75 segundos entre cada contato exibido antes de sair.
 
+
 ### Opção 5: Sair
 
 ```python
@@ -378,6 +397,7 @@ elif choice == '5':
 - **Funcionamento:**
   - O programa exibe uma mensagem indicando que está saindo.
   - Uma pausa de 1 segundo é feita antes de encerrar o programa completamente (`break` termina o loop `while True`).
+
 
 ### Considerações Finais
 
