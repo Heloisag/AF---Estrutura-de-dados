@@ -44,9 +44,10 @@ class LinkedList:
     def find_similar(self, key):
         current = self.head
         similar = []
+        key_lower = key.lower()
 
         while current is not None:
-            if key in current.data:
+            if key_lower in current.data.lower():
                 similar.append(current.data)
             current = current.next
 
