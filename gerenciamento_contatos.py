@@ -183,10 +183,11 @@ def main():
         
         elif choice == '3':
             name = input("Digite o nome do contato para buscar: ")
-            found_in_list = linked_list.search(name)
-            found_in_bst = bst.search(name) is not None
-            if found_in_list and found_in_bst:
-                print(f"Contato {name} encontrado.")
+            similar_contacts = linked_list.find_similar(name)
+            if similar_contacts:
+                print("Contatos encontrados parecidos com {name}:")
+                for idx, contact in enumerate(similar_contacts, start=1):
+                    print(f"{idx}. {contact}")
             else:
                 print(f"Contato {name} não encontrado.")
 
