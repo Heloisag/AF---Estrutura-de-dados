@@ -36,7 +36,7 @@ class BinarySearchTree:
 
 ### Métodos
 
-##### insert:
+#### insert:
 Insere um novo dado na árvore.
 
 ```python
@@ -66,7 +66,7 @@ def _insert(self, data, node):
 Este método recursivo insere o novo nó no lugar apropriado, comparando o dado a ser inserido com o dado do nó atual e movendo-se para a esquerda ou para a direita conforme necessário.
 
 
-##### delete:
+#### delete:
 Remove um dado da árvore.
 
 ```python
@@ -108,7 +108,7 @@ def _get_min(self, node):
 Este método encontra o nó com o menor valor na subárvore dada.
 
 
-##### search:
+#### search:
 Busca um dado na árvore.
 
 ```python
@@ -128,7 +128,7 @@ def _search(self, data, node):
 ```
 
 
-##### find_similar:
+#### find_similar:
 Encontra nós que contêm uma substring específica e armazena esses resultados em uma lista duplamente encadeada.
 
 ```python
@@ -150,7 +150,7 @@ def _find_similar(self, key, node, result):
 ```
 
 
-##### display:
+#### display:
 Retorna uma lista com os dados em ordem crescente (in-order traversal).
 
 ```python
@@ -206,7 +206,7 @@ class DoublyLinkedList:
 
 ### Metodos
 
-##### insert:
+#### insert:
 Insere um novo dado na lista.
 
 ```python
@@ -223,7 +223,7 @@ def insert(self, data):
 Se a lista estiver vazia, o novo nó se torna a cabeça e a cauda. Caso contrário, ele é adicionado ao final da lista.
 
 
-##### display:
+#### display:
 Retorna uma lista com os dados armazenados na lista duplamente encadeada.
 
 ```python
